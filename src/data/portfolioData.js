@@ -90,7 +90,7 @@ export const projects = [
     tech: ["Node.js", "Express.js", "MongoDB", "Cloudinary", "JWT Auth", "REST APIs"],
     accentColor: "from-violet-500/20 to-purple-500/20",
     borderGlow: "hover:border-violet-500/40",
-    liveUrl: "#",
+    liveUrl: "https://aananth-developers.vercel.app/",
     previewType: "realestate"
   },
   {

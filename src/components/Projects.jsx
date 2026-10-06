@@ -20,7 +20,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-16 sm:py-24 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10">
           <div>
@@ -42,16 +42,14 @@ export default function Projects() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveFilter(tab.id)}
-                  className={`px-3 sm:px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all flex items-center gap-1.5 ${
-                    activeFilter === tab.id
-                      ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                      : 'text-slate-400 hover:text-white hover:bg-slate-800'
-                  }`}
+                  className={`px-3 sm:px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all flex items-center gap-1.5 ${activeFilter === tab.id
+                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
+                    : 'text-slate-400 hover:text-white hover:bg-slate-800'
+                    }`}
                 >
                   <span className="whitespace-nowrap">{tab.label}</span>
-                  <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                    activeFilter === tab.id ? 'bg-indigo-700 text-white' : 'bg-slate-800 text-slate-500'
-                  }`}>
+                  <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${activeFilter === tab.id ? 'bg-indigo-700 text-white' : 'bg-slate-800 text-slate-500'
+                    }`}>
                     {tab.count}
                   </span>
                 </button>
@@ -68,7 +66,7 @@ export default function Projects() {
               className="group rounded-2xl sm:rounded-3xl bg-slate-900/60 border border-slate-800 hover:border-slate-700/80 transition-all duration-300 overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-indigo-500/5"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 p-4 sm:p-6 lg:p-8">
-                
+
                 {/* Left/Main Column: Project Details */}
                 <div className="lg:col-span-7 flex flex-col justify-between space-y-5 sm:space-y-6">
                   <div>
@@ -137,7 +135,7 @@ export default function Projects() {
                           className="px-4 py-2.5 rounded-xl bg-indigo-600/90 hover:bg-indigo-600 text-white text-xs font-semibold transition flex items-center justify-center gap-1.5 shadow-sm"
                         >
                           <span>Visit Live Site</span>
-                          <span className="text-xs">&nearr;</span>
+                          <span className="text-xs">↗</span>
                         </a>
                       )}
                     </div>
@@ -148,7 +146,7 @@ export default function Projects() {
                 {/* Right Column: Visual UI Mockup — hidden on mobile, shown on large screens */}
                 <div className="hidden lg:flex lg:col-span-5 flex-col justify-center">
                   <div className="rounded-2xl bg-slate-950 border border-slate-800/90 p-4 shadow-inner">
-                    
+
                     {/* Mockup Header Bar */}
                     <div className="flex items-center justify-between pb-3 border-b border-slate-800 text-[11px] text-slate-500 font-mono">
                       <span className="flex items-center gap-1.5">
