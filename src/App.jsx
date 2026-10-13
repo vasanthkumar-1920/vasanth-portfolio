@@ -1,32 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Projects from './components/Projects';
-import AiChatbotDemo from './components/AiChatbotDemo';
-import Skills from './components/Skills';
-import Experience from './components/Experience';
-import Education from './components/Education';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import Work from './pages/Work';
+import ProjectDetail from './pages/ProjectDetail';
+import About from './pages/About';
+import ExperiencePage from './pages/ExperiencePage';
+import ContactPage from './pages/ContactPage';
 
 export default function App() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
-      {/* Navigation */}
+    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 font-sans">
       <Navbar />
-
-      {/* Main Content */}
-      <main className="flex-1">
-        <Hero />
-        <Projects />
-        <AiChatbotDemo />
-        <Skills />
-        <Experience />
-        <Education />
-        <Contact />
+      <main key={pathname} className="flex-1 pt-16 page-in">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/work/:id" element={<ProjectDetail />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/experience" element={<ExperiencePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<Home />} />
+        </Routes>
       </main>
-
-      {/* Footer */}
       <Footer />
     </div>
   );

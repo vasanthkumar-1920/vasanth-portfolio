@@ -1,38 +1,29 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <footer className="py-8 sm:py-12 border-t border-slate-900 bg-slate-950 text-slate-400 text-xs">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-between sm:gap-4">
-        
-        {/* Left Copyright */}
-        <div className="flex items-center gap-2 text-center sm:text-left flex-wrap justify-center sm:justify-start">
-          <span>&copy; {new Date().getFullYear()} {personalInfo.name}</span>
-          <span className="text-slate-600">&bull;</span>
-          <span className="text-slate-500">{personalInfo.location}</span>
+    <footer className="border-t border-slate-800 mt-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid gap-8 sm:grid-cols-3">
+        <div>
+          <div className="font-display text-2xl text-slate-50">{personalInfo.name}</div>
+          <p className="mt-2 text-sm text-slate-400">{personalInfo.role} · {personalInfo.location}</p>
         </div>
-
-        {/* Center Tagline */}
-        <div className="text-slate-500 font-mono text-[10px] sm:text-[11px] text-center">
-          Engineered with React &bull; Tailwind CSS &bull; AI
+        <div className="flex flex-col gap-2 text-sm text-slate-400">
+          <Link to="/work" className="hover:text-slate-50">Work</Link>
+          <Link to="/about" className="hover:text-slate-50">About</Link>
+          <Link to="/experience" className="hover:text-slate-50">Experience</Link>
+          <Link to="/contact" className="hover:text-slate-50">Contact</Link>
         </div>
-
-        {/* Right Scroll to Top */}
-        <button
-          onClick={scrollToTop}
-          className="flex items-center gap-1.5 text-slate-400 hover:text-white transition group"
-        >
-          <span>Back to Top</span>
-          <svg className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-          </svg>
-        </button>
-
+        <div className="flex flex-col gap-2 text-sm text-slate-400">
+          <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="hover:text-slate-50">GitHub ↗</a>
+          <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-slate-50">LinkedIn ↗</a>
+          <a href={`mailto:${personalInfo.email}`} className="hover:text-slate-50">{personalInfo.email}</a>
+        </div>
+      </div>
+      <div className="border-t border-slate-800 py-4 text-center font-mono text-[11px] text-slate-500">
+        © {new Date().getFullYear()} {personalInfo.name}
       </div>
     </footer>
   );
